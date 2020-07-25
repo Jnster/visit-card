@@ -7,6 +7,6 @@ import ru.jnster.visitcard.domain.Skill;
 
 public interface SkillRepo extends JpaRepository<Skill, Integer> {
 
-  Page<Skill> findAll(Pageable pageable);
+    Page<Skill> findAll(Pageable pageable);
 
 }

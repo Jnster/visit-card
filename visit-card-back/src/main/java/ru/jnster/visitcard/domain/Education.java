@@ -10,6 +10,7 @@ import javax.persistence.Id;
 
 @Entity
 public class Education {
+
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     private Integer id;
@@ -63,13 +64,17 @@ public class Education {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Education education = (Education) o;
         return start.equals(education.start) &&
-                finish.equals(education.finish) &&
-                institute.equals(education.institute) &&
-                direction.equals(education.direction);
+            finish.equals(education.finish) &&
+            institute.equals(education.institute) &&
+            direction.equals(education.direction);
     }
 
     @Override

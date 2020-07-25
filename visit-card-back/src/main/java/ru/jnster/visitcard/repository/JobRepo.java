@@ -10,29 +10,29 @@ import ru.jnster.visitcard.domain.Job;
 
 public interface JobRepo extends JpaRepository<Job, Integer> {
 
-  Page<Job> findAll(Pageable pageable);
+    Page<Job> findAll(Pageable pageable);
 
-  @Query(value = "select * from job where ((start >= ?1 and start <= ?2) or (finish >= ?1 and finish <= ?2))",
-  nativeQuery = true)
-  Page<Job> findAllByStartOrFinishBetween(Pageable pageable, Date from, Date to);
+    @Query(value = "select * from job where ((start >= ?1 and start <= ?2) or (finish >= ?1 and finish <= ?2))",
+        nativeQuery = true)
+    Page<Job> findAllByStartOrFinishBetween(Pageable pageable, Date from, Date to);
 
-  @Query(value = "select * from job where ((start >= ?1 and start <= ?2) or (finish >= ?1 and finish <= ?2))",
-      nativeQuery = true)
-  List<Job> findAllByStartOrFinishBetween(Date from, Date to);
+    @Query(value = "select * from job where ((start >= ?1 and start <= ?2) or (finish >= ?1 and finish <= ?2))",
+        nativeQuery = true)
+    List<Job> findAllByStartOrFinishBetween(Date from, Date to);
 
-  @Query(value = "select * from job where (start >= ?1  or finish >= ?1)",
-      nativeQuery = true)
-  List<Job> findAllFrom(Date from);
+    @Query(value = "select * from job where (start >= ?1  or finish >= ?1)",
+        nativeQuery = true)
+    List<Job> findAllFrom(Date from);
 
-  @Query(value = "select * from job where (start <= ?1 or  finish <= ?1)",
-      nativeQuery = true)
-  List<Job> findAllTo(Date to);
+    @Query(value = "select * from job where (start <= ?1 or  finish <= ?1)",
+        nativeQuery = true)
+    List<Job> findAllTo(Date to);
 
-  @Query(value = "select * from job where (start >= ?1  or finish >= ?1)",
-      nativeQuery = true)
-  Page<Job> findAllFrom(Pageable pageable, Date from);
+    @Query(value = "select * from job where (start >= ?1  or finish >= ?1)",
+        nativeQuery = true)
+    Page<Job> findAllFrom(Pageable pageable, Date from);
 
-  @Query(value = "select * from job where (start <= ?1 or  finish <= ?1)",
-      nativeQuery = true)
-  Page<Job> findAllTo(Pageable pageable, Date to);
+    @Query(value = "select * from job where (start <= ?1 or  finish <= ?1)",
+        nativeQuery = true)
+    Page<Job> findAllTo(Pageable pageable, Date to);
 }

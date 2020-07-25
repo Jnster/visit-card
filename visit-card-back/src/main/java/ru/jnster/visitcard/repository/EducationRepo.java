@@ -7,6 +7,6 @@ import ru.jnster.visitcard.domain.Education;
 
 public interface EducationRepo extends JpaRepository<Education, Integer> {
 
-  Page<Education> findAll(Pageable pageable);
+    Page<Education> findAll(Pageable pageable);
 
 }

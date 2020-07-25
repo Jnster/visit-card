@@ -13,6 +13,7 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Job {
+
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     private Integer id;
@@ -76,14 +77,18 @@ public class Job {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Job job = (Job) o;
         return company.equals(job.company) &&
-                start.equals(job.start) &&
-                finish.equals(job.finish) &&
-                position.equals(job.position) &&
-                Objects.equals(achievements, job.achievements);
+            start.equals(job.start) &&
+            finish.equals(job.finish) &&
+            position.equals(job.position) &&
+            Objects.equals(achievements, job.achievements);
     }
 
     @Override

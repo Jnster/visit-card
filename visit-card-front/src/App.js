@@ -41,10 +41,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.jobs);
-    console.log(this.state.interests);
-    console.log(this.state.skills);
-    console.log(this.state.educations);
     return (
         <Row>
           <Col xs={1}/>
@@ -70,6 +66,9 @@ class App extends React.Component {
                 </Row>
                 <Row>
                   e-mail: jnster@yandex.ru
+                </Row>
+                <Row>
+                  <a href="http://github.com/jnster">github</a>
                 </Row>
               </Col>
             </Row>
