@@ -22,7 +22,7 @@ function JobList(props) {
                         {value.position}
                       </Col>
                     </Row>
-                    {value.achievements ? (
+                    {value.achievements.length !== 0? (
                         <div>
                           <h6>Достижения</h6>
                           <ListGroup>
