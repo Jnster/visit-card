@@ -1,5 +1,6 @@
 package ru.jnster.visitcard.controller;
 
+import java.sql.Date;
 import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -37,13 +38,57 @@ public class DataController {
 
   @GetMapping("jobs")
   public List<Job> getJobs(@RequestParam(required = false) Integer page,
-                           @RequestParam(required = false) Integer size) {
-    if (page == null || size == null) {
+                           @RequestParam(required = false) Integer size,
+                           @RequestParam(required = false, name = "date-from") Date from,
+                           @RequestParam(required = false, name = "date-to") Date to) {
+    //Постранично, фильтр "от ... до"
+    if (from != null && to != null && page != null && size != null){
+      PageRequest pageRequest = PageRequest.of(page, size);
+      Page<Job> jobPage = jobRepo.findAllByStartOrFinishBetween(pageRequest, from, to);
+      return jobPage.getContent();
+    }
+
+    //Без параметров
+    if (from == null && to == null && page == null && size == null){
       return jobRepo.findAll();
     }
-    PageRequest pageRequest = PageRequest.of(page, size);
-    Page<Job> jobPage = jobRepo.findAll(pageRequest);
-    return jobPage.getContent();
+
+    //Постранично
+    if (from != null && to != null && page == null && size == null){
+      return jobRepo.findAllByStartOrFinishBetween(from, to);
+    }
+
+    //Фильтр "от"
+    if (from != null && to == null && page == null && size == null){
+      return jobRepo.findAllFrom(from);
+    }
+
+    //Постранично, фильтр "от"
+    if (from != null && to == null && page != null && size != null){
+      PageRequest pageRequest = PageRequest.of(page, size);
+      Page<Job> jobPage = jobRepo.findAllFrom(pageRequest, from);
+      return jobPage.getContent();
+    }
+
+    //Фильтр "до"
+    if (from == null && to != null && page == null && size == null){
+      return jobRepo.findAllTo(to);
+    }
+
+    //Постранично, фильтр "до"
+    if (from == null && to != null && page != null && size != null){
+      PageRequest pageRequest = PageRequest.of(page, size);
+      Page<Job> jobPage = jobRepo.findAllTo(pageRequest, to);
+      return jobPage.getContent();
+    }
+
+    //Фильтр "от ... до"
+    if (from == null && to == null && page != null && size != null){
+      PageRequest pageRequest = PageRequest.of(page, size);
+      Page<Job> jobPage = jobRepo.findAll(pageRequest);
+      return jobPage.getContent();
+    }
+    return null;
   }
 
   @GetMapping("skills")
