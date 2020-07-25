@@ -3,10 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {BrowserRouter, Route} from "react-router-dom";
+import {createBrowserHistory} from "history";
+import TestPage from "./components/TestPage";
+
+const history = createBrowserHistory();
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter history={history}>
+      <Route exact path="/" component={App}/>
+      <Route path="/test" component={TestPage}/>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
