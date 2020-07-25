@@ -36,10 +36,15 @@ class App extends React.Component {
     axios.get(config.serverUrl + "/api/v1/skills")
     .then(response => this.setState({skills: response.data}))
     .catch(error => console.log(error));
+
+
   }
 
   render() {
-
+    console.log(this.state.jobs);
+    console.log(this.state.interests);
+    console.log(this.state.skills);
+    console.log(this.state.educations);
     return (
         <Row>
           <Col xs={1}/>

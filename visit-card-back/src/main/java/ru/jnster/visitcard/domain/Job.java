@@ -3,12 +3,13 @@ package ru.jnster.visitcard.domain;
 import java.sql.Date;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Job {
@@ -22,8 +23,8 @@ public class Job {
     private Date finish;
     @Column(nullable = false)
     private String position;
-    @ElementCollection
-    private List<String> achievements;
+    @OneToMany(cascade = CascadeType.REMOVE, targetEntity = Achievement.class, mappedBy = "job")
+    private List<Achievement> achievements;
 
     public Integer getId() {
         return id;
@@ -65,11 +66,11 @@ public class Job {
         this.position = position;
     }
 
-    public List<String> getAchievements() {
+    public List<Achievement> getAchievements() {
         return achievements;
     }
 
-    public void setAchievements(List<String> achievements) {
+    public void setAchievements(List<Achievement> achievements) {
         this.achievements = achievements;
     }
 
