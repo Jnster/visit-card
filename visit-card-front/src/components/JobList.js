@@ -28,7 +28,7 @@ function JobList(props) {
                           <ListGroup>
                             {value.achievements.map(
                                 value1 =>
-                                    <ListGroup.Item>{value1}</ListGroup.Item>)
+                                    <ListGroup.Item>{value1.description}</ListGroup.Item>)
                             }
                           </ListGroup>
                         </div>
