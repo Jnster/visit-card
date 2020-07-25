@@ -1,8 +1,12 @@
 package ru.jnster.visitcard.domain;
 
-import javax.persistence.*;
 import java.sql.Date;
 import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Education {
@@ -11,7 +15,6 @@ public class Education {
     private Integer id;
     @Column(nullable = false)
     private Date start;
-    @Column(nullable = false)
     private Date finish;
     @Column(nullable = false)
     private String institute;

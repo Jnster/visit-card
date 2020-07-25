@@ -1,9 +1,14 @@
 package ru.jnster.visitcard.domain;
 
-import javax.persistence.*;
 import java.sql.Date;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Job {
@@ -14,7 +19,6 @@ public class Job {
     private String company;
     @Column(nullable = false)
     private Date start;
-    @Column(nullable = false)
     private Date finish;
     @Column(nullable = false)
     private String position;
