@@ -15,7 +15,7 @@ function EducationList(props) {
                     <Row>
                       <Col>
                         <h6>Период учёбы</h6>
-                        {value.start} - {value.finish}
+                        {value.start} - {value.finish?value.finish:'По настоящее время'}
                       </Col>
                       <Col>
                         <h6>Направление подготовки</h6>

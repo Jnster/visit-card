@@ -15,7 +15,7 @@ function JobList(props) {
                     <Row>
                       <Col>
                         <h6>Период работы</h6>
-                        {value.start} - {value.finish}
+                        {value.start} - {value.finish?value.finish:'По настоящее время'}
                       </Col>
                       <Col>
                         <h6>Должность</h6>
