@@ -13,6 +13,7 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter history={history}>
       <Route exact path="/" component={App}/>
+      {/* Для проверки работы перехода по страницам */}
       <Route path="/test" component={TestPage}/>
     </BrowserRouter>
   </React.StrictMode>,

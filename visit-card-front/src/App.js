@@ -8,6 +8,7 @@ import {Col, Image, Row} from "react-bootstrap";
 import axios from "axios";
 import config from "./config";
 
+//Stateful
 class App extends React.Component {
 
   constructor(props) {

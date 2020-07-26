@@ -1,6 +1,7 @@
 import {Card, Col, Container, Row} from "react-bootstrap";
 import React from "react";
 
+//Stateless
 function EducationList(props) {
 
   return (

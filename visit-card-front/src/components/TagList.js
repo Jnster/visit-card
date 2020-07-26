@@ -2,6 +2,7 @@ import Container from "react-bootstrap/Container";
 import Badge from "react-bootstrap/Badge";
 import React from 'react';
 
+//Stateless
 function TagList(props) {
 
   let color = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light',

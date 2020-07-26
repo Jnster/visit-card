@@ -1,6 +1,7 @@
 import {Card, Col, Container, ListGroup, Row} from "react-bootstrap";
 import React from "react";
 
+//Stateless
 function JobList(props) {
 
   return (

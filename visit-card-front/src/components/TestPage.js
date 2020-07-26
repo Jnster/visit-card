@@ -1,5 +1,6 @@
 import React from "react";
 
+//Stateless
 function TestPage() {
   return(
       <div>
